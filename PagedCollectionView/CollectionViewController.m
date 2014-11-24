@@ -111,9 +111,19 @@ static NSString * const reuseIdentifier = @"Cell";
         pageIndex = floorf( pageIndex );
     }
 
+    // This is likely our new offset
+    CGFloat newOffset = ( pageIndex * insetFrame.size.width );
+	
+	// If we don't have enough for a full page at the end, snap to the end point.
+	// This means the penultimate page will have some content crossover with the
+	// last page, and mirrors the default paging behaviour.
+	if( newOffset > self.collectionView.contentSize.width - insetFrame.size.width ) {
+		newOffset = self.collectionView.contentSize.width - insetFrame.size.width;
+	}
+
     // Set our target content offset.
     // We multiply the target page index by the page width, and adjust for the content inset.
-    targetContentOffset->x = ( pageIndex * insetFrame.size.width ) - self.collectionView.contentInset.left;
+    targetContentOffset->x = newOffset - self.collectionView.contentInset.left;
 }
 
 @end
