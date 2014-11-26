@@ -15,7 +15,11 @@ Scrollview content insets, as found in iOS 7 and up, allow for content to appear
 
 My solution is to use content insets to adjust the page size, and reimplement a very simple paging mechanism (with the built in version turned off). The benefit of this solution is that it can be applied to anything that uses a scrollview where you want paging and a preview of content on other pages: paging controllers, collection views, table views, etc.
 
-My opinion is that this should be the default behaviour of paging: that the page size is affected by the content insets. The existing implementation is useless as it causes content to be inaccessible. I plan to file a radar, and will update this file with a link once completed.
+## Bug Report
+
+My opinion is that this should be the default behaviour of paging: that the page size is affected by the content insets. The existing implementation is useless as it causes content to be inaccessible.  As such, I've filed a radar (19075189), which you can read and duplicate if you so choose: [openradar.appspot.com/radar?id=6358822092275712](http://openradar.appspot.com/radar?id=6358822092275712)
+
+I have no idea if Apple will respond to this. Don't hold your breath.
 
 ## Released as Public Domain
 
